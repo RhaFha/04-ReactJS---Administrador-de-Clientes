@@ -1,14 +1,9 @@
 import { useNavigate, redirect, Form } from "react-router-dom";
 import { ClienteType } from "../pages";
-import { eliminarCliente } from "../api/cliente";
-
-export async function action({ params }) {
-  eliminarCliente(params.clienteId);
-  return redirect("/");
-}
 
 const Cliente: React.FC<IPropsCliente> = ({ cliente }) => {
   const navigate = useNavigate();
+
   return (
     <tr className="border-b">
       <td className="pd-6 space-y px-3">
@@ -35,7 +30,7 @@ const Cliente: React.FC<IPropsCliente> = ({ cliente }) => {
         </button>
         <Form
           method="POST"
-          action={`/clientes/${cliente.id}/eliminar`}
+          action='destroy'
           onSubmit={(e) => {
             if (!confirm("¿Deseas eliminar este registro?")) {
               e.preventDefault();
@@ -45,7 +40,6 @@ const Cliente: React.FC<IPropsCliente> = ({ cliente }) => {
           <button
             type="submit"
             className="text-red-600 hover:text-red-700 uppercase font-bold text-xs"
-            //onClick={() => navigate(`/clientes/${cliente.id}/eliminar`)}
           >
             Eliminar
           </button>

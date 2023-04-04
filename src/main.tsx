@@ -14,7 +14,7 @@ import EditarCliente, {
   loader as loaderEditarCliente,
   action as actionEditarCliente,
 } from "./pages/EditarCliente";
-import { action as actionEliminarCliente } from "./components/Cliente";
+import { action as actionEliminarCliente } from "./pages/EliminarCliente";
 
 const router = createBrowserRouter([
   {
